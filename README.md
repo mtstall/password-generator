@@ -10,5 +10,7 @@ Use this application to generate a secure password based upon user criteria.
 
 ## Deployed Site
 
+<img src="./assets/images/password-generator-screenshot.png" alt="screenshot of deployed site"/>
+
 ## Credits
 N/A
