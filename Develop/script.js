@@ -1,8 +1,11 @@
 // Assignment code here
 
 //array of possible alpha values
-var passwordValues = "abcdefghijklmnopqrstuvwxyz";
-var passwordValuesArray = passwordValues.split('');
+var passwordValuesLower = "abcdefghijklmnopqrstuvwxyz";
+var passwordValuesLowerArray = passwordValuesLower.split('');
+
+var passwordValuesUpper = passwordValuesLower.toUpperCase();
+var passwordValuesUpperArray = passwordValuesUpper.split('');
 
 //array of possible numeric values
 var passwordNumericValues = "1234567890";
@@ -38,6 +41,7 @@ function generatePassword() {
   var numeric = confirm("Do you want to include numeric characters?");
   var special = confirm("Do you want to include special characters?");
 
+  //validation for user answers - make sure at least one true value selected
   while ((lowerCase == false) && (upperCase === false) && (numeric == false) && (special == false)) {
     window.alert("You must select at least one character type.");
     lowerCase = confirm("Do you want to include lowercase characters?");
@@ -45,13 +49,15 @@ function generatePassword() {
     numeric = confirm("Do you want to include numeric characters?");
     special = confirm("Do you want to include special characters?");
   }
+  
+  //creating blank array for generated password
+  var passwordArray = [];
 
+  //ONE TRUE
   //code for lowerCase only selected
   if((lowerCase == true) && (upperCase === false) && (numeric == false) && (special == false)) {
-      var passwordArray = [];
-
       for (var i = 0; i < passwordLength; i++) {
-        var randomValue = passwordValuesArray[Math.floor(Math.random() * passwordValuesArray.length)];
+        var randomValue = passwordValuesLowerArray[Math.floor(Math.random() * passwordValuesLowerArray.length)];
         passwordArray[i] = randomValue;
       }
       var password = passwordArray.join("");
@@ -60,10 +66,8 @@ function generatePassword() {
 
   //code for upperCase only selected
   else if((lowerCase == false) && (upperCase === true) && (numeric == false) && (special == false)) {
-    var passwordArray = [];
-
     for (var i = 0; i < passwordLength; i++) {
-      var randomValue = passwordValuesArray[Math.floor(Math.random() * passwordValuesArray.length)];
+      var randomValue = passwordValuesLowerArray[Math.floor(Math.random() * passwordValuesLowerArray.length)];
       passwordArray[i] = randomValue;
     }
     var password = passwordArray.join("");
@@ -72,31 +76,161 @@ function generatePassword() {
   }
 
     //code for numeric only selected
-    else if((lowerCase == false) && (upperCase === false) && (numeric == true) && (special == false)) {
-      var passwordArray = [];
-  
+    else if((lowerCase == false) && (upperCase === false) && (numeric == true) && (special == false)) {  
       for (var i = 0; i < passwordLength; i++) {
         var randomValue = passwordNumericValuesArray[Math.floor(Math.random() * passwordNumericValuesArray.length)];
         passwordArray[i] = randomValue;
       }
       var password = passwordArray.join("");
-      password = password.toUpperCase();
       console.log(password);
     }
 
-      //code for special characters only selected
-      else if((lowerCase == false) && (upperCase === false) && (numeric == false) && (special == true)) {
-        var passwordArray = [];
+    //code for special characters only selected
+    else if((lowerCase == false) && (upperCase === false) && (numeric == false) && (special == true)) {
       
-        for (var i = 0; i < passwordLength; i++) {
-          var randomValue = passwordSpecialValuesArray[Math.floor(Math.random() * passwordSpecialValuesArray.length)];
-          passwordArray[i] = randomValue;
-        }
-        var password = passwordArray.join("");
-        password = password.toUpperCase();
-        console.log(password);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordSpecialValuesArray[Math.floor(Math.random() * passwordSpecialValuesArray.length)];
+        passwordArray[i] = randomValue;
       }
-      return password;
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //TWO TRUE
+    //lowercase and uppercase
+    else if ((lowerCase == true) && (upperCase === true) && (numeric == false) && (special == false)) {
+
+      var passwordValues = passwordValuesLower.concat(passwordValuesUpper);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+        passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //lowercase and numeric
+    else if ((lowerCase == true) && (upperCase === false) && (numeric == true) && (special == false)) {
+
+      var passwordValues = passwordValuesLower.concat(passwordNumericValues);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+        passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //lowercase and special
+    else if ((lowerCase == true) && (upperCase === false) && (numeric == false) && (special == true)) {
+
+      var passwordValues = passwordValuesLower.concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+        passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //uppercase and numeric
+    else if ((lowerCase == false) && (upperCase === true) && (numeric == true) && (special == false)) {
+
+      var passwordValues = passwordValuesUpper.concat(passwordNumericValues);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+        passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //uppercase and special
+    else if ((lowerCase == false) && (upperCase === true) && (numeric == false) && (special == true)) {
+
+      var passwordValues = passwordValuesUpper.concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+        passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //numeric and special
+    else if ((lowerCase == false) && (upperCase === false) && (numeric == true) && (special == true)) {
+
+      var passwordValues = passwordNumericValues.concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+        var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+        passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //THREE TRUE
+    //lowercase uppercase numeric
+    else if ((lowerCase == true) && (upperCase === true) && (numeric == true) && (special == false)) {
+
+      var passwordValues = passwordValuesLower.concat(passwordValuesUpper).concat(passwordNumericValues);
+      for (var i = 0; i < passwordLength; i++) {
+      var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+      passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //lowercase uppercase special
+    else if ((lowerCase == true) && (upperCase === true) && (numeric == false) && (special == true)) {
+
+      var passwordValues = passwordValuesLower.concat(passwordValuesUpper).concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+      var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+      passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //lowercase numeric special
+    else if ((lowerCase == true) && (upperCase === false) && (numeric == true) && (special == true)) {
+
+      var passwordValues = passwordValuesLower.concat(passwordNumericValues).concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+      var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+      passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //uppercase numeric special
+    else if ((lowerCase == false) && (upperCase === true) && (numeric == true) && (special == true)) {
+
+      var passwordValues = passwordValuesUpper.concat(passwordNumericValues).concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+      var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+      passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    //FOUR TRUE
+    else if ((lowerCase == true) && (upperCase === true) && (numeric == true) && (special == true)) {
+
+      var passwordValues = passwordValuesUpper.concat(passwordValuesLower).concat(passwordNumericValues).concat(passwordSpecialValues);
+      for (var i = 0; i < passwordLength; i++) {
+      var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
+      passwordArray[i] = randomValue;
+      }
+      var password = passwordArray.join("");
+      console.log(password);
+    }
+
+    return password;
   }
 
 // Get references to the #generate element
