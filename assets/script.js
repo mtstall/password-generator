@@ -63,19 +63,14 @@ function generatePassword() {
         var randomValue = passwordValuesLowerArray[Math.floor(Math.random() * passwordValuesLowerArray.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
   //code for upperCase only selected
   else if((lowerCase == false) && (upperCase === true) && (numeric == false) && (special == false)) {
     for (var i = 0; i < passwordLength; i++) {
-      var randomValue = passwordValuesLowerArray[Math.floor(Math.random() * passwordValuesLowerArray.length)];
+      var randomValue = passwordValuesUpperArray[Math.floor(Math.random() * passwordValuesUpperArray.length)];
       passwordArray[i] = randomValue;
     }
-    var password = passwordArray.join("");
-    password = password.toUpperCase();
-    console.log(password);
   }
 
     //code for numeric only selected
@@ -84,8 +79,6 @@ function generatePassword() {
         var randomValue = passwordNumericValuesArray[Math.floor(Math.random() * passwordNumericValuesArray.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //code for special characters only selected
@@ -95,8 +88,6 @@ function generatePassword() {
         var randomValue = passwordSpecialValuesArray[Math.floor(Math.random() * passwordSpecialValuesArray.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //TWO TRUE
@@ -108,8 +99,6 @@ function generatePassword() {
         var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //lowercase and numeric
@@ -120,8 +109,6 @@ function generatePassword() {
         var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //lowercase and special
@@ -132,8 +119,6 @@ function generatePassword() {
         var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //uppercase and numeric
@@ -144,8 +129,6 @@ function generatePassword() {
         var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //uppercase and special
@@ -156,8 +139,6 @@ function generatePassword() {
         var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //numeric and special
@@ -168,8 +149,6 @@ function generatePassword() {
         var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
         passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //THREE TRUE
@@ -181,8 +160,6 @@ function generatePassword() {
       var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
       passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //lowercase uppercase special
@@ -193,8 +170,6 @@ function generatePassword() {
       var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
       passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //lowercase numeric special
@@ -205,8 +180,6 @@ function generatePassword() {
       var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
       passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //uppercase numeric special
@@ -217,8 +190,6 @@ function generatePassword() {
       var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
       passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
 
     //FOUR TRUE
@@ -229,9 +200,10 @@ function generatePassword() {
       var randomValue = passwordValues[Math.floor(Math.random() * passwordValues.length)];
       passwordArray[i] = randomValue;
       }
-      var password = passwordArray.join("");
-      console.log(password);
     }
+
+    var password = passwordArray.join("");
+    console.log(password);
 
     return password;
   }
